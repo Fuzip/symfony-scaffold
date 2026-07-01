@@ -11,9 +11,13 @@ foreach ([__DIR__.'/../../../autoload.php', __DIR__.'/../vendor/autoload.php'] a
 }
 
 use Symfony\Component\Console\Application;
+use Symfony\Component\HttpClient\HttpClient;
+use SymfonyScaffold\Installer\Github\GithubClient;
 use SymfonyScaffold\Installer\InstallerCommand;
 
-$cmd = new InstallerCommand();
+$githubClient = new GithubClient(HttpClient::create(), 'php/frankenphp');
+
+$cmd = new InstallerCommand($githubClient);
 $app = new Application('Symfony scaffold', InstallerCommand::version());
 $app->addCommand($cmd);
 $app->setDefaultCommand((string) $cmd->getName(), true);
