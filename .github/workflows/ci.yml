@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Composer
+        uses: php-actions/composer@v6
+        with:
+          php_version: 8.5
+          args: install --quiet --no-scripts --no-progress
+
+      - name: PHP-CS-Fixer
+        run: vendor/bin/php-cs-fixer check --using-cache=no
+
+      - name: PHPStan
+        run: vendor/bin/phpstan analyse --no-progress src
