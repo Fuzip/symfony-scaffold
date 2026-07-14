@@ -18,7 +18,7 @@ jobs:
       - name: Composer
         uses: php-actions/composer@v6
         with:
-          php_version: 8.5
+          php_version: "8.5"
           args: install --quiet --no-scripts --no-progress
 
       - name: PHP-CS-Fixer
