@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Symfinit\Installer;
 
+use Symfinit\Installer\Github\GithubClient;
+use Symfinit\Installer\Runner\ProjectRunner;
+use Symfinit\Installer\Symfony\SymfonyVersionResolver;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -12,9 +15,6 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\Question;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Symfinit\Installer\Github\GithubClient;
-use Symfinit\Installer\Runner\ProjectRunner;
-use Symfinit\Installer\Symfony\SymfonyVersionResolver;
 
 /**
  * @author Victor Dittiere <victor.dittiere@camif.fr>
