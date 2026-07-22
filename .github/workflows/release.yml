@@ -66,9 +66,9 @@ jobs:
             runner: macos-14
 
     env:
-      EXTENSIONS: phar,ctype,mbstring,zlib,openssl
+      EXTENSIONS: phar,ctype,mbstring,zlib,openssl,filter
       # Mirror of EXTENSIONS with dashes — cache keys reject commas.
-      EXTENSIONS_KEY: phar-ctype-mbstring-zlib-openssl
+      EXTENSIONS_KEY: phar-ctype-mbstring-zlib-openssl-filter
       # spc fetches source metadata from the GitHub API; authenticate to
       # avoid the 60 req/h unauthenticated rate limit (403 on cache miss).
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
